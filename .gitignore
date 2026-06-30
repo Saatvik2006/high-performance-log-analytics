@@ -1,0 +1,28 @@
+# Binaries
+serial_parser
+openmp_parser
+mpi_parser
+hybrid_parser
+
+# Object files
+*.o
+*.out
+
+# Editor
+.vscode/
+.idea/
+
+# Linux
+*~
+*.swp
+
+# Generated outputs
+results/*
+
+# Large datasets
+datasets/*.log
+datasets/*.txt
+datasets/*.csv
+
+# macOS
+.DS_Store
