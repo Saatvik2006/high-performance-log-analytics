@@ -70,3 +70,25 @@ serial/main.c \
 ```bash
 ./serial_parser <dataset>
 ```
+
+# Serial Benchmark (Version 2)
+
+Hardware
+--------
+Master Node
+- Intel Core i5-12450HX
+- 8 Physical Cores
+- Ubuntu Linux
+
+Dataset Results
+
+| Dataset | Runtime (sec) |
+|----------|--------------:|
+| access.log | 0.681325 |
+| nasa_500MB.log | 2.077168 |
+| nasa_1GB.log | 4.213752 |
+| nasa_2GB.log | 8.449862 |
+| nasa_4GB.log | 16.996737 |
+| nasa_8GB.log | 33.734138 |
+| nasa_10GB.log | 42.082686 |
+

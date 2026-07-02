@@ -34,3 +34,21 @@ using datasets ranging from
 - 4 GB
 - 8 GB
 - 10 GB
+
+## Version 2
+
+### Added
+
+- IP frequency counting using custom hash table
+- Top 10 IP analytics
+- OpenMP parallel IP counting
+- MPI distributed IP counting
+- Hybrid MPI + OpenMP implementation
+- Large dataset benchmarking (65 MB – 10 GB)
+
+### Benchmarks
+
+- Serial
+- OpenMP
+- MPI
+- Hybrid

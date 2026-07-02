@@ -6,10 +6,16 @@ MPICC=mpicc
 CFLAGS=-O3 -Wall -Iinclude
 OMPFLAGS=-fopenmp
 
-SERIAL_SRC=src/parser.c src/timer.c src/analytics.c serial/main.c
-OPENMP_SRC=src/parser.c src/timer.c src/analytics.c openmp/main.c
-MPI_SRC=src/parser.c src/timer.c src/analytics.c mpi/main.c
-HYBRID_SRC=src/parser.c src/timer.c src/analytics.c hybrid/main.c
+COMMON_SRC=src/parser.c \
+           src/timer.c \
+           src/analytics.c \
+           src/ip_hash.c \
+           src/ip_counter.c
+
+SERIAL_SRC=$(COMMON_SRC) serial/main.c
+OPENMP_SRC=$(COMMON_SRC) openmp/main.c
+MPI_SRC=$(COMMON_SRC) mpi/main.c
+HYBRID_SRC=$(COMMON_SRC) hybrid/main.c
 
 all: serial openmp mpi hybrid
 

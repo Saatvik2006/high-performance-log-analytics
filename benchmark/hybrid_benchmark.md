@@ -82,3 +82,17 @@ Version 1 demonstrates four working implementations:
 - Hybrid MPI + OpenMP Parser
 
 The Hybrid implementation provides the fastest execution when distributed across both nodes, serving as the baseline for future feature additions and optimization in Version 2.
+
+
+# Hybrid MPI + OpenMP Benchmark (Version 2)
+
+| Dataset | 2x8 | 4x4 | 8x2 | 16x1 |
+|----------|----:|----:|----:|-----:|
+| access.log | 0.308706 | 0.160995 | 0.178087 | 0.099993 |
+| nasa_500MB.log | 0.912952 | 0.394940 | 0.380076 | 0.279743 |
+| nasa_1GB.log | 1.853346 | 0.721285 | 0.761825 | 0.510059 |
+| nasa_2GB.log | 3.686663 | 1.355221 | 1.454424 | 1.012693 |
+| nasa_4GB.log | 7.287409 | 2.578176 | 2.794507 | 1.984138 |
+| nasa_8GB.log | 14.793881 | 5.325699 | 5.753891 | 3.860896 |
+| nasa_10GB.log | 18.368635 | 6.722755 | 6.931400 | 5.083724 |
+

@@ -5,6 +5,8 @@
 #include "../include/parser.h"
 #include "../include/timer.h"
 #include "../include/analytics.h"
+#include "../include/ip_hash.h"
+#include "../include/ip_counter.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +20,9 @@ int main(int argc, char *argv[])
 
     Analytics global_stats;
     analytics_init(&global_stats);
+
+    IPHash global_table;
+    ip_hash_init(&global_table);
 
 #pragma omp parallel
     {
@@ -55,10 +60,16 @@ int main(int argc, char *argv[])
             Analytics local_stats;
             analytics_init(&local_stats);
 
+            IPHash local_table;
+            ip_hash_init(&local_table);
+
             while (ftell(file) < end_pos && fgets(line, sizeof(line), file))
             {
                 if (parse_log_line(line, &entry))
+                {
                     analytics_update(&local_stats, &entry);
+                    ip_counter_update(&local_table, &entry);
+                }
             }
 
             fclose(file);
@@ -66,13 +77,25 @@ int main(int argc, char *argv[])
 #pragma omp critical
             {
                 analytics_merge(&global_stats, &local_stats);
+                ip_hash_merge(&global_table, &local_table);
             }
+
+            ip_hash_destroy(&local_table);
         }
     }
 
     double runtime = get_time() - start;
 
     analytics_print(&global_stats, runtime);
+
+    printf("\n");
+    printf("=========================================\n");
+    printf("Top 10 IP Addresses\n");
+    printf("=========================================\n");
+
+    ip_hash_print_top(&global_table, 10);
+
+    ip_hash_destroy(&global_table);
 
     return 0;
 }

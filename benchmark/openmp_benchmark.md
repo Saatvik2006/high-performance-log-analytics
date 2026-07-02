@@ -105,3 +105,15 @@ No duplicate or missing records were observed in the final implementation.
 - Performance continues to improve at 12 threads, although gains begin to diminish due to synchronization overhead and memory bandwidth limitations.
 - The best performance was achieved using **12 OpenMP threads**, reducing the runtime of the 10 GB dataset from **40.44 s** to **6.21 s**, corresponding to an approximate **6.5× speedup** over the single-threaded implementation.
 - OpenMP provides efficient shared-memory parallelism with minimal communication overhead compared to distributed-memory MPI.
+
+# OpenMP Benchmark (Version 2)
+
+| Dataset | 1 Thread | 2 Threads | 4 Threads | 8 Threads |
+|----------|---------:|----------:|----------:|----------:|
+| access.log | 0.738886 | 0.431533 | 0.252609 | 0.184683 |
+| nasa_500MB.log | 2.180893 | 1.235666 | 0.630699 | 0.397300 |
+| nasa_1GB.log | 4.472436 | 2.496866 | 1.262572 | 0.838453 |
+| nasa_2GB.log | 8.966837 | 4.821825 | 2.425707 | 1.624004 |
+| nasa_4GB.log | 17.512463 | 9.394446 | 5.022061 | 3.182029 |
+| nasa_8GB.log | 35.497754 | 19.340592 | 9.640064 | 6.437089 |
+| nasa_10GB.log | 44.768196 | 23.635363 | 12.050007 | 7.990562 |

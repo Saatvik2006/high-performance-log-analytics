@@ -150,3 +150,16 @@ No duplicate or missing records were observed.
 - Distributed execution across the two-node cluster further reduces runtime.
 - The best performance for larger datasets was achieved with **15–16 MPI processes**, utilizing both the master and worker nodes.
 - The heterogeneous cluster (Intel Core i5-12450HX + Intel Core i5-3540) demonstrates the benefit of distributed execution despite differing processor capabilities.
+
+
+# MPI Benchmark (Version 2)
+
+| Dataset | 1 Proc | 2 Proc | 4 Proc | 8 Proc |
+|----------|-------:|-------:|-------:|-------:|
+| access.log | 0.744709 | 0.380027 | 0.231337 | 0.160102 |
+| nasa_500MB.log | 2.245083 | 1.167599 | 0.624546 | 0.492367 |
+| nasa_1GB.log | 4.630688 | 2.367463 | 1.348533 | 0.889927 |
+| nasa_2GB.log | 9.260150 | 4.860366 | 2.665618 | 1.776935 |
+| nasa_4GB.log | 18.064608 | 9.445301 | 4.832409 | 3.623636 |
+| nasa_8GB.log | 36.594417 | 19.182269 | 9.774748 | 6.887139 |
+| nasa_10GB.log | 45.967551 | 23.876478 | 12.103283 | 8.559919 |
